@@ -5,30 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>水墨丹青 - 中华意境</title>
     <link rel="stylesheet" href="style.css">
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://cdn.jsdelivr.net/npm/three@0.166.1/build/three.module.js"
+            }
+        }
+    </script>
 </head>
 <body>
     <div id="artwork-container">
-        <img src="main_artwork.png" alt="中国传统水墨画风格的数字艺术作品" class="artwork-image">
-        <div class="mist-overlay"></div>
+        <canvas id="mist-canvas"></canvas>
+        <img id="image-1" class="artwork-image" alt="中国传统水墨画风格的数字艺术作品">
+        <img id="image-2" class="artwork-image" alt="中国传统水墨画风格的数字艺术作品">
     </div>
-    <div id="poem-container">
-        <p>松</p>
-        <p>风</p>
-        <p>拂</p>
-        <p>袖</p>
-        <p>思</p>
-        <p>无</p>
-        <p>言</p>
-        <p>，</p>
-        <p>云</p>
-        <p>深</p>
-        <p>不</p>
-        <p>知</p>
-        <p>归</p>
-        <p>路</p>
-        <p>远</p>
+    <div id="poem-wrapper">
+         <div id="poem-1" class="poem-container"></div>
+         <div id="poem-2" class="poem-container"></div>
     </div>
-    <script src="script.js"></script>
+    <div id="loading-indicator">正在生成山水画卷...</div>
+    <script type="module" src="script.js"></script>
 <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
 </body>
 </html>
+

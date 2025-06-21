@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Zhi+Mang+Xing&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap');
 
 body, html {
     margin: 0;
@@ -6,8 +6,8 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: #f0f0e0; /* A pale, parchment-like color */
-    font-family: 'Zhi Mang Xing', cursive;
+    background-color: #1a1a1a;
+    font-family: 'Ma Shan Zheng', cursive;
 }
 
 #artwork-container {
@@ -18,64 +18,74 @@ body, html {
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    background-color: #000;
 }
 
 .artwork-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease-out;
-}
-
-#artwork-container:hover .artwork-image {
-    transform: scale(1.02);
-}
-
-.mist-overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: url(mist_overlay.png);
-    background-size: cover;
-    opacity: 0.3;
-    animation: drift 90s linear infinite alternate;
-    pointer-events: none; /* Allows clicks and hovers to pass through */
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
 }
 
-@keyframes drift {
-    from {
-        transform: translateX(-10%);
-    }
-    to {
-        transform: translateX(10%);
-    }
+.artwork-image.active {
+    opacity: 1;
 }
 
-#poem-container {
+#mist-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+}
+
+#poem-wrapper {
     position: absolute;
     top: 5vh;
     right: 5vw;
+    height: 90vh;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.poem-container {
+    position: absolute;
     writing-mode: vertical-rl;
     text-orientation: mixed;
-    color: #333;
-    font-size: 2.2rem;
-    line-height: 1.6;
-    text-shadow: 1px 1px 3px rgba(255, 255, 255, 0.7);
-    pointer-events: none;
+    color: #f0f0e0;
+    font-size: 2.5rem;
+    line-height: 1.8;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.8);
     opacity: 0;
-    animation: fadeIn 3s ease-in-out forwards;
-    animation-delay: 1s;
+    transition: opacity 2s ease-in-out;
+    transition-delay: 1s; /* Poem fades in after image starts to appear */
 }
 
-#poem-container p {
+.poem-container.active {
+    opacity: 0.9;
+}
+
+.poem-container p {
     margin: 0;
-    padding: 0;
+    padding: 0 1rem;
+    display: block;
 }
 
-@keyframes fadeIn {
-    to {
-        opacity: 0.85;
-    }
+#loading-indicator {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 1.5rem;
+    z-index: 100;
+    text-shadow: 1px 1px 3px black;
+    display: none;
 }
